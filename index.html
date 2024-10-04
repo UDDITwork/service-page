@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDDIT SAAS Request</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+        body {
+            font-family: 'IM Fell English', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: white;
+            background: linear-gradient(45deg, #000033, #000066, #3333cc, #000066, #000033);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .gmail-btn {
+            background-color: #D44638;
+            color: white;
+        }
+
+        .image-slider {
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 30px;
+        }
+
+        .image-container {
+            display: inline-block;
+            animation: slide 50s linear infinite;
+        }
+
+        .image-block {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin-right: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .image-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg) translate(0, -100%);
+            transition: transform 0.5s;
+        }
+
+        .image-block:hover::before {
+            transform: rotate(30deg) translate(0, 50%);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .image-block:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-block.active {
+            box-shadow: 0 0 0 3px white;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You are submitting SAAS request to:</h1>
+        <div class="contact-info">
+            <h1><strong>UDDIT</strong></h1>
+            <p>Address: MNIT Jaipur College, JLN Marg, Malaviya Nagar, 302017</p>
+            <p>Phone: +91-7456886877, +91-9672538062</p>
+        </div>
+        <div>
+            <a href="https://wa.me/919672538062" class="button whatsapp-btn" target="_blank">WhatsApp</a>
+            <a href="mailto:udditalerts247@gmail.com" class="button gmail-btn" target="_blank">Gmail</a>
+        </div>
+        <div class="image-slider">
+            <div class="image-container">
+                <a href="https://www.aamirshaikh.net/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=1" alt="Aamir Shaikh"></a>
+                <a href="https://www.guruduttperi.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=2" alt="Gurudutt Peri"></a>
+                <a href="https://www.karenhutton.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=3" alt="Karen Hutton"></a>
+                <a href="https://alexsexton.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=4" alt="Alex Sexton"></a>
+                <a href="https://www.vibor.it/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=5" alt="Vibor"></a>
+                <a href="https://www.walmart.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=6" alt="Walmart"></a>
+                <a href="https://www.stutpak.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=7" alt="Stutpak"></a>
+                <a href="https://lovvelavva.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=8" alt="Lovve Lavva"></a>
+                <a href="https://www.amazon.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=9" alt="Amazon"></a>
+                <a href="https://www.github.com/" target="_blank" class="image-block"><img src="https://picsum.photos/150/150?random=10" alt="GitHub"></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; CopyRights Reserved EXTRANOS3.O
+    </footer>
+    <script>
+        document.querySelectorAll('.image-block').forEach(block => {
+            block.addEventListener('mouseover', function() {
+                this.classList.add('hover');
+            });
+            block.addEventListener('mouseout', function() {
+                this.classList.remove('hover');
+            });
+        });
+    </script>
+</body>
+</html>
