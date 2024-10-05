@@ -27,17 +27,33 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 20px;
             flex-grow: 1;
+            box-sizing: border-box;
         }
 
         h1 {
             color: white;
+            font-size: 24px;
+            text-align: center;
         }
 
         .contact-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
@@ -47,7 +63,8 @@
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            margin-right: 10px;
+            text-align: center;
+            min-width: 120px;
         }
 
         .whatsapp-btn {
@@ -64,6 +81,7 @@
             overflow: hidden;
             white-space: nowrap;
             margin-top: 30px;
+            position: relative;
         }
 
         .image-container {
@@ -71,31 +89,19 @@
             animation: slide 50s linear infinite;
         }
 
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
         .image-block {
             display: inline-block;
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             margin-right: 10px;
             border-radius: 10px;
             overflow: hidden;
             position: relative;
-            cursor: pointer;
-        }
-
-        .image-block::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(30deg) translate(0, -100%);
-            transition: transform 0.5s;
-        }
-
-        .image-block:hover::before {
-            transform: rotate(30deg) translate(0, 50%);
         }
 
         .image-block img {
@@ -109,21 +115,62 @@
             transform: scale(1.1);
         }
 
-        .image-block.active {
-            box-shadow: 0 0 0 3px white;
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .image-block {
+                width: 150px;
+                height: 150px;
+            }
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+        @media (max-width: 767px) {
+            .image-slider {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .image-slider::-webkit-scrollbar {
+                display: none;
+            }
+
+            .image-container {
+                animation: none;
+                display: inline-flex;
+                padding-bottom: 10px;
+            }
         }
 
         footer {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 767px) {
+            footer {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                font-size: 16px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -135,7 +182,7 @@
             <p>Address: MNIT Jaipur College, JLN Marg, Malaviya Nagar, 302017</p>
             <p>Phone: +91-7456886877, +91-9672538062</p>
         </div>
-        <div>
+        <div class="button-container">
             <a href="https://wa.me/919672538062" class="button whatsapp-btn" target="_blank">WhatsApp</a>
             <a href="mailto:udditalerts247@gmail.com" class="button gmail-btn" target="_blank">Gmail</a>
         </div>
@@ -155,16 +202,14 @@
         </div>
     </div>
     <footer>
-        &copy; CopyRights Reserved EXTRANOS3.O
+        <p>&copy; 2023 CopyRights Reserved EXTRANOS3.O</p>
     </footer>
     <script>
-        document.querySelectorAll('.image-block').forEach(block => {
-            block.addEventListener('mouseover', function() {
-                this.classList.add('hover');
-            });
-            block.addEventListener('mouseout', function() {
-                this.classList.remove('hover');
-            });
+        // Add this script at the end of the body
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageContainer = document.querySelector('.image-container');
+            const clonedContainer = imageContainer.cloneNode(true);
+            document.querySelector('.image-slider').appendChild(clonedContainer);
         });
     </script>
 </body>
